@@ -1,0 +1,2 @@
+figma: https://www.figma.com/file/gjWyRFmqzh5BncKcM9BHfE/coding-challenge?node-id=0%3A318
+Documentación de la API: https://aerolabchallenge.docs.apiary.io/#reference/0/redeem
