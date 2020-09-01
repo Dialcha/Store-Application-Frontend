@@ -10,6 +10,8 @@ const Container = styled.div`
   top: 80px;
   background-image: url(${Image});
   background-size: 100% 100%; ;
+  display: flex;
+  align-content: flex-end;
 `;
 // ajustar background-size a 20%
 
@@ -18,7 +20,6 @@ const Title = styled.h1`
   height: 80px;
   left: 9.17%;
   right: 69.03%;
-  top: calc(50% - 80px / 2 + 118px);
 
   font-family: Source Sans Pro;
   font-style: normal;
@@ -26,7 +27,7 @@ const Title = styled.h1`
   font-size: 64px;
   line-height: 80px;
 
-  color: black;
+  color: #FFF;
 `;
 
 function Header() {
