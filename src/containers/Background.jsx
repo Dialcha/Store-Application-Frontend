@@ -5,23 +5,20 @@ import Menu from '../components/Menu/Menu';
 import styled from "styled-components";
 
 const Container = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    max-width: 1440px;
-    max-height: 412px;
-    left: 0px;
-    top: 0px;
-
+    display: flex;
+    flex-direction: column;
+    background: #F9F9F9;
 `
 
 function Background() {
     return (
-        <div>
+        <Container>
             <Top/>
             <Header/>
             <Menu/>
-        </div>
+            <br></br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus id nostrum doloremque odit enim exercitationem dolor porro repellendus reprehenderit, dolore, illum provident ducimus veritatis eius modi! Atque eligendi officiis laboriosam.</p>
+        </Container>
     )
 }
 

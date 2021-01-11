@@ -4,14 +4,11 @@ import Image from "../../assets/aerolab-logo.svg";
 import Profile from './Profile';
 
 const Container = styled.div`
-  position: fixed;
   width: 100%;
-  height: 80px;
-  left: 0px;
-  top: 0px;
   background: #FFFFFF;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 const Logo = styled.img`
