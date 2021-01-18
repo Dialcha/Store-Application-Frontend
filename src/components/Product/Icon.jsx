@@ -1,5 +1,6 @@
 import React from "react";
-import Img from "../../assets/icons/buy-blue.svg";
+import ImgBlue from "../../assets/icons/buy-blue.svg";
+import ImgWhite from "../../assets/icons/buy-white.svg";
 import styled from "styled-components";
 
 const BuyImage = styled.img`
@@ -9,8 +10,8 @@ const BuyImage = styled.img`
   padding-top: 12px;
 `;
 
-function Icon() {
-  return <BuyImage src={Img}></BuyImage>;
+function Icon({imgBlue}) {
+  return <BuyImage src={imgBlue ? ImgBlue : ImgWhite}></BuyImage>;
 }
 
 export default Icon;

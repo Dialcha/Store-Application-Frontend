@@ -4,18 +4,27 @@ import Img from "../../assets/product-pics/iPhone8-x1.png";
 
 const Container = styled.div`
     width: 91%;
-    height: 66%;
+    height: 55%;
     align-self: center;
+    display: flex;
 `;
 
 const ProductImg = styled.img`
-
+    width: 100%;
 `;
 
-function Photo() {
+const ProductImgHoover = styled.img`
+    width: 100%;
+    opacity: 0.2
+`;
+
+function Photo({hoover}) {
     return (
         <Container>
-            <ProductImg src={Img}></ProductImg>
+            {
+                hoover ? <ProductImgHoover src={Img} /> : <ProductImg src={Img} /> 
+            }
+            
         </Container>
     )
 }
