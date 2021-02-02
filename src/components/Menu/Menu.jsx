@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Filter from "./Filter";
 import NumberOfItems from "./NumberOfItems";
+import Pagination from "./Pagination";
 
 const Container = styled.div`
   display: flex;
@@ -36,16 +37,17 @@ const SecondaryText = styled.h2`
   align-self: center;
 `;
 
-function Menu() {
+function Menu({ products, allProducts, sortProducts }) {
   return (
     <>
     <Container>
-      <NumberOfItems numberOfProducts="16 of 32 products"></NumberOfItems>
+      <NumberOfItems numberOfProducts={ allProducts.length } actualPage={ products.currentPage }></NumberOfItems>
       <VerticalLine />
       <SecondaryText>Sort by:</SecondaryText>
-      <Filter title="Most Recent" />
-      <Filter title="Lowest Price" />
-      <Filter title="Highest Price" />
+      <Filter title="Lowest Price" filterValue="lowestprice"/>
+      <Filter title="Highest Price" filterValue="highestprice" />
+      <Filter title="Category" filterValue="category"/>
+      <Pagination products={products}/>
     </Container>
     <BottomLine/>
     </>

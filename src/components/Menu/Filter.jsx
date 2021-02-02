@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { sortProductsByPrice } from "../../redux/actions";
+import { connect } from "react-redux";
 
 const Container = styled.div`
   display: flex;
@@ -9,6 +11,7 @@ const Container = styled.div`
   box-sizing: content-box;
   margin: 20px 10px;
   padding: 10px;
+  cursor: pointer
 `;
 
 const Title = styled.h1`
@@ -23,12 +26,25 @@ const Title = styled.h1`
   color: #a3a3a3;
 `;
 
-function Filter({ title }) {
+function Filter({ title, filterValue, products, orderProducts }) {
   return (
-    <Container>
+    <Container onClick={() => orderProducts(products, filterValue)} >
       <Title>{title}</Title>
     </Container>
   );
 }
 
-export default Filter;
+const mapStateToProps = (state) => {
+  return {
+    products: state.productsReducer
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    orderProducts: (products, sort) =>
+      dispatch(sortProductsByPrice(products, sort)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

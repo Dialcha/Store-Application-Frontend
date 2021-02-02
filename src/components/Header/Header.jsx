@@ -24,10 +24,10 @@ const Title = styled.h1`
   color: #fff;
 `;
 
-function Header() {
+function Header({title}) {
   return (
     <Container>
-      <Title>Electronics</Title>
+      <Title>{title}</Title>
     </Container>
   );
 }

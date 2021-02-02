@@ -11,10 +11,10 @@ color: #616161;
 align-self: center;
 `;
 
-function NumberOfItems({numberOfProducts}) {
+function NumberOfItems({numberOfProducts, actualPage}) {
     return (
         <Container>
-            {numberOfProducts}
+            { actualPage * 16 } of {numberOfProducts} products
         </Container>
     )
 }

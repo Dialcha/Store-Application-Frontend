@@ -33,11 +33,11 @@ const Title = styled.div`
   letter-spacing: -0.0423529px;
 `;
 
-function Info() {
+function Info({name, category}) {
   return (
     <Container>
-      <Subtitle>Phones</Subtitle>
-      <Title>Iphone 8</Title>
+      <Subtitle>{category}</Subtitle>
+      <Title>{name}</Title>
     </Container>
   );
 }

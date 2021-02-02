@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 import PointsAvailable from "./PointsAvailable";
+import { getUser } from "../../redux/actions";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  width: 30%;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -11,7 +14,6 @@ const Container = styled.div`
 `;
 
 const ProfileName = styled.h1`
-
   font-family: Source Sans Pro;
   font-style: normal;
   font-weight: normal;
@@ -23,13 +25,34 @@ const ProfileName = styled.h1`
   color: #616161;
 `;
 
-function Profile() {
+function Profile({ user, points, getUser }) {
+  useEffect(() => {
+    getUser();
+  }, [getUser, points.loading]);
+
   return (
-      <Container>
-          <ProfileName>Diego Chavarría</ProfileName>
-          <PointsAvailable />
-      </Container>
+      <Link to="/history">
+    <Container>
+      <ProfileName>{user.loading || points.loading ? '...' : user.user.name}</ProfileName>
+      {
+        user.loading || points.loading ? null : <PointsAvailable pointsValue={user.user.points}/>
+      }
+    </Container>
+      </Link>
   );
 }
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    user: state.usersReducer,
+    points: state.pointsReducer,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUser: () => dispatch(getUser()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

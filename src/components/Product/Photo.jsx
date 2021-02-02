@@ -18,11 +18,11 @@ const ProductImgHoover = styled.img`
     opacity: 0.2
 `;
 
-function Photo({hoover}) {
+function Photo({hoover, image}) {
     return (
         <Container>
             {
-                hoover ? <ProductImgHoover src={Img} /> : <ProductImg src={Img} /> 
+                hoover ? <ProductImgHoover src={image} /> : <ProductImg src={image} /> 
             }
             
         </Container>
