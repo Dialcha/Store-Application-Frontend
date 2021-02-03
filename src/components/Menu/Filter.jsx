@@ -11,7 +11,10 @@ const Container = styled.div`
   box-sizing: content-box;
   margin: 20px 10px;
   padding: 10px;
-  cursor: pointer
+  cursor: pointer;
+  &:hover {
+    background: #14dcfc;
+  }
 `;
 
 const Title = styled.h1`

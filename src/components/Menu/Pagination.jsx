@@ -9,17 +9,22 @@ const ArrowLeftButton = styled.img`
   height: 48px;
   cursor: pointer;
   align-self: center;
+  &:hover {
+    background:#a3a3a3;
+  }
 `;
 const ArrowRightButton = styled.img`
   width: 48px;
   height: 48px;
   cursor: pointer;
   align-self: center;
+  &:hover {
+    background:#a3a3a3;
+  }
 `;
 
 function Pagination({ products, history }) {
     useEffect(() => {
-        console.log('PRODUCTOS EN LA PAGINACIÓN: ', products)
       }, [history, products]);
   return (
     <>

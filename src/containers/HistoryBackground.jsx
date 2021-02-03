@@ -22,7 +22,6 @@ function HistoryBackground({history, getHistory}) {
 
       const paginatedProducts = usePagination(history.history, 16);
       const splicedProducts = paginatedProducts.currentData();
-      console.log('SPLICED PRODUCTS HISTORY', splicedProducts)
 
     return (
         <Container>

@@ -10,8 +10,7 @@ const Container = styled.div`
 `;
 
 function renderProducts(productsRender) {
-  console.log("La lista de productos :", [].slice.call(productsRender));
-  let prods = [].slice.call(productsRender).map((product) => {
+  let prods = [].slice.call(productsRender).map((product, index) => {
     let imgUrl = product.img.url;
     let newUrl = "";
     if (product.img.url.includes("https://aerolab-challenge.now.sh/")) {
@@ -24,6 +23,7 @@ function renderProducts(productsRender) {
     }
     return (
       <HistoryItem
+        key={index}
         photo={newUrl}
         category={product.category}
         name={product.name}

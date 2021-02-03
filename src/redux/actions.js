@@ -195,7 +195,6 @@ import {
   export const sortProductsByPrice = (product, sort) => {
     return (dispatch) => {
       const products = product.products;
-      console.log(product.products, sort);
       if (sort !== "") {
         products.sort((a, b) => sort === "lowestprice" ? a.cost > b.cost ? 1 : -1
         : sort === "highestprice" ? a.cost < b.cost ? 1 : -1 : sort === "category"

@@ -10,8 +10,7 @@ const Container = styled.div`
 `;
 
 function renderProducts(productsRender, points, reedemProduct) {
-  console.log("Los points :", points);
-  let prods = [].slice.call(productsRender).map((product) => {
+  let prods = [].slice.call(productsRender).map((product, index) => {
     let imgUrl = product.img.url;
     let newUrl = "";
     if (product.img.url.includes("https://aerolab-challenge.now.sh/")) {
@@ -24,6 +23,7 @@ function renderProducts(productsRender, points, reedemProduct) {
     }
     return (
       <Product
+        key={index}
         photo={newUrl}
         category={product.category}
         name={product.name}
@@ -46,8 +46,6 @@ function Products({
 }) {
   useEffect(() => {
     getAllProducts();
-    console.log("Llamada en el useEffect: ", products);
-    console.log("orden de los productos: ", products);
   }, [getAllProducts]);
   return (
     <Container>

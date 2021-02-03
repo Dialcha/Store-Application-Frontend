@@ -34,16 +34,16 @@ function Profile({ user, points, getUser }) {
   }, [getUser, points.loading]);
 
   return (
-    <Link to="/history" style={{ textDecoration: "none" }}>
-      <Container>
+    <Container>
+        <Link to="/history" style={{ textDecoration: "none" }}>
         <ProfileName>
           {user.loading || points.loading ? "Loading user info" : user.user.name}
         </ProfileName>
+        </Link>
         {user.loading || points.loading ? null : (
           <PointsAvailable pointsValue={user.user.points} />
         )}
       </Container>
-    </Link>
   );
 }
 
