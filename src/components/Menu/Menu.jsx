@@ -12,10 +12,10 @@ const Container = styled.div`
   justify-content: space-around;
 `;
 
-const BottomLine = styled.div `
+const BottomLine = styled.div`
   width: 80%;
   height: 1px;
-  background: #D9D9D9;
+  background: #d9d9d9;
   align-self: center;
 `;
 
@@ -37,19 +37,30 @@ const SecondaryText = styled.h2`
   align-self: center;
 `;
 
-function Menu({ products, allProducts, sortProducts }) {
+function Menu({ products, allProducts, showFilters }) {
+
   return (
     <>
-    <Container>
-      <NumberOfItems numberOfProducts={ allProducts.length } actualPage={ products.currentPage }></NumberOfItems>
-      <VerticalLine />
-      <SecondaryText>Sort by:</SecondaryText>
-      <Filter title="Lowest Price" filterValue="lowestprice"/>
-      <Filter title="Highest Price" filterValue="highestprice" />
-      <Filter title="Category" filterValue="category"/>
-      <Pagination products={products}/>
-    </Container>
-    <BottomLine/>
+      <Container>
+        <NumberOfItems
+          numberOfProducts={allProducts.length}
+          actualPage={products.currentPage}
+        ></NumberOfItems>
+        <VerticalLine />
+        {showFilters ? (
+          <>
+            <SecondaryText>Sort by:</SecondaryText>
+            <Filter title="Lowest Price" filterValue="lowestprice" />
+            <Filter title="Highest Price" filterValue="highestprice" />
+            <Filter title="Category" filterValue="category" />
+          </>
+        ) : (
+          <div></div>
+        )}
+
+        <Pagination products={products} />
+      </Container>
+      <BottomLine />
     </>
   );
 }

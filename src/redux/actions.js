@@ -1,10 +1,4 @@
 import {
-    GET_USER_FAILED,
-    GET_USER_SUCCESS,
-    GET_USER_PENDING,
-    GET_HISTORY_PENDING,
-    GET_HISTORY_SUCCESS,
-    GET_HISTORY_FAILED,
     GET_PRODUCTS_FAILED,
     GET_PRODUCTS_SUCCESS,
     GET_PRODUCTS_PENDING,
@@ -14,7 +8,13 @@ import {
     ADD_POINTS_FAILED,
     ADD_POINTS_SUCCESS,
     ADD_POINTS_PENDING,
-    ORDER_PRODUCTS
+    ORDER_PRODUCTS,
+    GET_USER_FAILED,
+    GET_USER_SUCCESS,
+    GET_USER_PENDING,
+    GET_HISTORY_PENDING,
+    GET_HISTORY_SUCCESS,
+    GET_HISTORY_FAILED,
   } from "./actionTypes";
 
   const headers = {
@@ -64,10 +64,6 @@ import {
       body: JSON.stringify({ amount }),
     });
   };
-
-  ///////////
-  // Actions
-  ///////////
   
   export const getUser = () => {
     return async (dispatch) => {

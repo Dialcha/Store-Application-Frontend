@@ -23,6 +23,9 @@ const ProfileName = styled.h1`
 
   letter-spacing: -0.15px;
   color: #616161;
+  &:hover {
+    color: #14dcfc;
+  }
 `;
 
 function Profile({ user, points, getUser }) {
@@ -31,14 +34,16 @@ function Profile({ user, points, getUser }) {
   }, [getUser, points.loading]);
 
   return (
-      <Link to="/history">
-    <Container>
-      <ProfileName>{user.loading || points.loading ? '...' : user.user.name}</ProfileName>
-      {
-        user.loading || points.loading ? null : <PointsAvailable pointsValue={user.user.points}/>
-      }
-    </Container>
-      </Link>
+    <Link to="/history" style={{ textDecoration: "none" }}>
+      <Container>
+        <ProfileName>
+          {user.loading || points.loading ? "Loading user info" : user.user.name}
+        </ProfileName>
+        {user.loading || points.loading ? null : (
+          <PointsAvailable pointsValue={user.user.points} />
+        )}
+      </Container>
+    </Link>
   );
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components";
-import Img from "../../assets/product-pics/iPhone8-x1.png";
 
 const Container = styled.div`
     width: 91%;

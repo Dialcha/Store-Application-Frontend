@@ -5,7 +5,7 @@ import HistoryBackground from './containers/HistoryBackground';
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/global";
 import { lightTheme } from "./styles/theme";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -13,15 +13,16 @@ function App() {
       <ThemeProvider theme={lightTheme}>
         <GlobalStyles />
         <Switch>
+        <Route exact path="/products">
+            <Background />
+          </Route>
           <Route path="/points">
             <Points />
           </Route>
           <Route path="/history">
             <HistoryBackground />
           </Route>
-          <Route path="/">
-            <Background />
-          </Route>
+          <Redirect from="/*" to="/products" />
         </Switch>
       </ThemeProvider>
     </Router>

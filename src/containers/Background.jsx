@@ -6,11 +6,12 @@ import styled from "styled-components";
 import Products from "../components/Products/Products";
 import { connect } from "react-redux";
 import {
-    getProducts,
-    redeemUserPoints,
-    sortProductsByPrice,
-  } from "../redux/actions";
+  getProducts,
+  redeemUserPoints,
+  sortProductsByPrice,
+} from "../redux/actions";
 import usePagination from "../hooks/pagination";
+import swal from 'sweetalert';
 
 const Container = styled.div`
   display: flex;
@@ -23,24 +24,45 @@ function Background({
   products,
   getPoints,
   user,
-  points,
   sortProducts,
+  points,
 }) {
   useEffect(() => {
     getAllProducts();
-  }, [getAllProducts]);
+
+    if (points.message.error) {
+      swal("Ooops", "Somwthing went wrong", "error")
+    } else if (points.message.message) {
+      swal("Good", points.message.message , "success");
+
+      if (points.message !== "") {
+        points.message = "";
+      }
+    }
+
+  }, [getAllProducts, points.message]);
 
   const paginatedProducts = usePagination(products.products, 16);
   const splicedProducts = paginatedProducts.currentData();
-  console.log('Spliced products: ', splicedProducts)
 
   return (
     <Container>
       <Top />
       <Header title={"Electronics"} />
-      <Menu allProducts={products.products} products={paginatedProducts}/>
+      <Menu
+        getAllProducts={getAllProducts}
+        allProducts={products.products}
+        products={paginatedProducts}
+        showFilters={true}
+      />
       <br></br>
-      <Products getAllProducts={getAllProducts} products={splicedProducts} sortProducts={sortProducts}/>
+      <Products
+        getAllProducts={getAllProducts}
+        products={splicedProducts}
+        sortProducts={sortProducts}
+        points={user.user.points}
+        reedemProduct={getPoints}
+      />
     </Container>
   );
 }

@@ -13,6 +13,9 @@ const Container = styled.div`
   justify-content: space-around;
   cursor: pointer;
   padding-left: 15px;
+  &:hover {
+    background: #14dcfc;
+  }
 `;
 
 const PointsValue = styled.h1`
@@ -33,7 +36,7 @@ const PointsImg = styled.img`
 function PointsAvailable({pointsValue}) {
 
   return (
-    <Link to="/points">
+    <Link to="/points" style={{ textDecoration: 'none' }}>
       <Container>
         <PointsValue>{pointsValue}</PointsValue>
         <PointsImg src={Image}></PointsImg>

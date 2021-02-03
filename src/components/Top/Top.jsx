@@ -24,7 +24,7 @@ const Logo = styled.img`
 function Top() {
   return (
     <Container>
-      <Link to="/">
+      <Link to="/products" style={{ textDecoration: 'none' }}>
         <Logo src={Image} />
       </Link>
       <Profile />

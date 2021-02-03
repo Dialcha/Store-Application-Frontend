@@ -4,6 +4,7 @@ import Info from "./Info";
 import Icon from "./Icon";
 import Photo from "./Photo";
 import Image from "../../assets/icons/coin.svg";
+import Missing from "./Missing";
 
 const Container = styled.div`
   width: 23%;
@@ -14,7 +15,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 1% 0 1% 1.6%;
-  cursor: pointer;
   &:hover {
     background: linear-gradient(
       180deg,
@@ -63,6 +63,7 @@ const ButtonReedem = styled.div`
   display: flex;
   border-radius: 20.5px;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const ButtonText = styled.p`
@@ -75,9 +76,8 @@ const ButtonText = styled.p`
   letter-spacing: -0.0423529px;
 `;
 
-function Product({ photo, category, name, cost }) {
+function Product({ photo, category, name, cost, points, reedemProduct }) {
   const [isHover, setIsHover] = useState(false);
-  
 
   return (
     <>
@@ -86,16 +86,28 @@ function Product({ photo, category, name, cost }) {
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
       >
-        {isHover ? <Icon imgBlue={false} /> : <Icon imgBlue={true} />}
+        {isHover ? (
+          <Icon imgBlue={false} />
+        ) : cost > points ? (
+          <Missing points={cost - points} />
+        ) : (
+          <Icon imgBlue={true} />
+        )}
         <Photo hoover={isHover} image={photo} />
         <Info category={category} name={name} />
         {isHover ? (
           <ReedemBox>
-            <PriceText>{cost}</PriceText>
-            <PointsImg src={Image}></PointsImg>
-            <ButtonReedem>
-              <ButtonText>Reedem</ButtonText>
-            </ButtonReedem>
+            {points > cost ? (
+              <>
+                <PriceText>{cost}</PriceText>
+                <PointsImg src={Image}></PointsImg>
+                <ButtonReedem onClick={reedemProduct}>
+                  <ButtonText>Reedem</ButtonText>
+                </ButtonReedem>
+              </>
+            ) : (
+              <PriceText>{`${cost - points} points missing`}</PriceText>
+            )}
           </ReedemBox>
         ) : null}
       </Container>
