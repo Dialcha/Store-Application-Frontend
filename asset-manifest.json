@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Store-Application-Frontend/static/css/main.69eda509.chunk.css",
+    "main.js": "/Store-Application-Frontend/static/js/main.7edcfe19.chunk.js",
+    "main.js.map": "/Store-Application-Frontend/static/js/main.7edcfe19.chunk.js.map",
+    "runtime-main.js": "/Store-Application-Frontend/static/js/runtime-main.bbd57713.js",
+    "runtime-main.js.map": "/Store-Application-Frontend/static/js/runtime-main.bbd57713.js.map",
+    "static/js/2.80a831e4.chunk.js": "/Store-Application-Frontend/static/js/2.80a831e4.chunk.js",
+    "static/js/2.80a831e4.chunk.js.map": "/Store-Application-Frontend/static/js/2.80a831e4.chunk.js.map",
+    "index.html": "/Store-Application-Frontend/index.html",
+    "precache-manifest.dc3c56652b3fa29a77cd370b6ebe55ed.js": "/Store-Application-Frontend/precache-manifest.dc3c56652b3fa29a77cd370b6ebe55ed.js",
+    "service-worker.js": "/Store-Application-Frontend/service-worker.js",
+    "static/css/main.69eda509.chunk.css.map": "/Store-Application-Frontend/static/css/main.69eda509.chunk.css.map",
+    "static/js/2.80a831e4.chunk.js.LICENSE.txt": "/Store-Application-Frontend/static/js/2.80a831e4.chunk.js.LICENSE.txt",
+    "static/media/aerolab-logo.svg": "/Store-Application-Frontend/static/media/aerolab-logo.eafbdf97.svg",
+    "static/media/buy-blue.svg": "/Store-Application-Frontend/static/media/buy-blue.35b334b7.svg",
+    "static/media/buy-white.svg": "/Store-Application-Frontend/static/media/buy-white.6c4dec8b.svg",
+    "static/media/coin.svg": "/Store-Application-Frontend/static/media/coin.da7936e6.svg",
+    "static/media/header-x1.png": "/Store-Application-Frontend/static/media/header-x1.f0b98264.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bbd57713.js",
+    "static/js/2.80a831e4.chunk.js",
+    "static/css/main.69eda509.chunk.css",
+    "static/js/main.7edcfe19.chunk.js"
+  ]
+}
